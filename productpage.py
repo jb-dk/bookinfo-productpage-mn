@@ -260,16 +260,18 @@ def floodReviews(product_id, headers):
 @app.route('/productpage')
 @trace()
 def front():
-    product_id = 9780486424613  # TODO: replace default value
+    product_id = 9780486424613
     headers = getForwardHeaders(request)
     user = session.get('user', '')
+
+    product_id = 0  # TODO change for dynamic id
     product = getProduct(product_id)
     detailsStatus, details = getProductDetails(product_id, headers)
 
     if flood_factor > 0:
         floodReviews(product_id, headers)
 
-    reviewsStatus, reviews = getProductReviews(0, headers)
+    reviewsStatus, reviews = getProductReviews(product_id, headers)
     return render_template(
         'productpage.html',
         detailsStatus=detailsStatus,
