@@ -1,0 +1,24 @@
+{
+  "name": "bookinfo-productpage-e2e",
+  "version": "1.0.0",
+  "description": "End-2-end tests for bookinfo-productpage",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:local": "CYPRESS_HOST='http://localhost:9080' cypress open",
+    "test:local:ps": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibm-garage-cph/bookinfo-productpage-e2e.git"
+  },
+  "author": "Mihai Nueleanu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibm-garage-cph/bookinfo-productpage-e2e/issues"
+  },
+  "homepage": "https://github.com/ibm-garage-cph/bookinfo-productpage-e2e#readme",
+  "devDependencies": {
+    "cypress": "^4.5.0"
+  }
+}
