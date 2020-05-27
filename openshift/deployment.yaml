@@ -15,7 +15,7 @@ spec:
         app: productpage
     spec:
       containers:
-        - image: <IMAGE_NAME>
+        - image: <IMAGE_NAME> # on purpose, will be replaced by pipeline
           imagePullPolicy: Always
           name: productpage
           ports:

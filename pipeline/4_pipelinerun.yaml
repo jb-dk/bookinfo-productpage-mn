@@ -15,4 +15,4 @@ spec:
         name: registry-bookinfo-productpage
   params:
     - name: NAMESPACE
-      value: dev-mn
+      value: bookinfo-mn
