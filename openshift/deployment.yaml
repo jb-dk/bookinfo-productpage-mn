@@ -3,16 +3,19 @@ kind: Deployment
 metadata:
   labels:
     app: productpage
-  name: productpage
+    version: v2
+  name: productpage-v2
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: productpage
+      version: v2
   template:
     metadata:
       labels:
         app: productpage
+        version: v2
     spec:
       containers:
         - image: <IMAGE_NAME> # on purpose, will be replaced by pipeline
