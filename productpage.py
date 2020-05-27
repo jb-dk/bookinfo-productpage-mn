@@ -269,7 +269,7 @@ def front():
     if flood_factor > 0:
         floodReviews(product_id, headers)
 
-    reviewsStatus, reviews = getProductReviews(product_id, headers)
+    reviewsStatus, reviews = getProductReviews(0, headers)
     return render_template(
         'productpage.html',
         detailsStatus=detailsStatus,
