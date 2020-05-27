@@ -1,0 +1,37 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: pipeline-productpage
+spec:
+  resources:
+    - name: git
+      type: git
+    - name: image
+      type: image
+  params:
+    - name: NAMESPACE
+      type: string
+      description: name of the cluster namespace to apply mamnifests to
+  tasks:
+    - name: build-push
+      taskRef:
+        name: build-push
+      resources:
+        inputs:
+          - name: git
+            resource: git
+          - name: image
+            resource: image
+    - name: apply-manifest
+      taskRef:
+        name: apply-manifests-task
+      runAfter: [build-push]
+      resources:
+        inputs:
+          - name: git
+            resource: git
+          - name: image
+            resource: image
+      params:
+        - name: namespace
+          value: $(params.NAMESPACE)

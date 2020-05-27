@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: productpage
+spec:
+  rules:
+  - host: 'bookinfo-n.roks-bootcamp-194290-7cb1e9f279ecbad5dd278bca741c81b3-0000.eu-de.containers.appdomain.cloud'
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: productpage
+          servicePort: 9080
