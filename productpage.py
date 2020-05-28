@@ -264,9 +264,10 @@ def front():
     headers = getForwardHeaders(request)
     user = session.get('user', '')
 
+    detailsStatus, details = getProductDetails(product_id, headers)
+
     product_id = 0  # TODO change for dynamic id
     product = getProduct(product_id)
-    detailsStatus, details = getProductDetails(product_id, headers)
 
     if flood_factor > 0:
         floodReviews(product_id, headers)
